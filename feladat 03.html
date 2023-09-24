@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3. feladat</title>
+    <style>
+        .centered-button {
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <div class="centered-button">
+    <button id="koszontes">Kattints rám!</button>
+    <p id="udvozlet"></p>
+    </div>
+    <script>
+        var gomb = document.getElementById("koszontes");
+        var udvozlesElem = document.getElementById("udvozlet");
+        var mostaniido = new Date().getHours();
+        var udvozlet;
+
+        if (mostaniido < 12) {
+            udvozlet = "Jó reggelt!";
+        }
+        else {
+            udvozlet = "Jó estét!";
+        }
+        gomb.addEventListener("click", function() {
+            udvozlesElem.textContent = udvozlet;  
+        });
+  
+        
+
+    </script>
+</body>
+</html>
