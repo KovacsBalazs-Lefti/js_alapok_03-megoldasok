@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2. feladat</title>
+</head>
+<body>
+    <h1>Háromszög oldalainak számítása</h1>
+    <label for="A">A OLDAL</label>
+    <input type="number" name="oldal1" id="oldal1" step="any"><br>
+    <label for="B">B OLDAL</label>
+    <input type="number" name="oldal2" id="oldal2" step="any"><br>
+    <label for="C">C OLDAL</label>
+    <input type="number" name="oldal3" id="oldal3" step="any"><br>
+    <button onclick="teruletkeruletszamitas()">Számolj</button>
+    <p id="haromszogteruletekerulete"></p>
+    
+    <script>
+      
+        function teruletkeruletszamitas() {
+            const oldal1 = parseFloat(document.getElementById('oldal1').value);
+            const oldal2 = parseFloat(document.getElementById('oldal2').value);
+            const oldal3 = parseFloat(document.getElementById('oldal3').value);
+
+            if (isNaN(oldal1) || isNaN(oldal2) || isNaN(oldal3)){
+                alert('Mindhárom oldal értékének a megadása szükséges');
+                return;
+            }
+            if (oldal1 + oldal2 <= oldal3 || oldal1 + oldal3 <= oldal2 || oldal2 + oldal3 <= oldal1){
+                alert('Nem érvényes háromszög');
+                return;
+            }
+            const s = (oldal1 + oldal2 + oldal3) / 2;
+            const terulet = Math.sqrt(s * (s - oldal1) * (s - oldal2) * (s - oldal3));
+            const kerulet = oldal1 + oldal2 + oldal3;
+            document.getElementById("haromszogteruletekerulete").innerHTML = `Terület: ${terulet.toFixed(2)}, Kerület: ${kerulet.toFixed(2)}`;
+        }
+
+
+
+    </script>
+</body>
+</html>

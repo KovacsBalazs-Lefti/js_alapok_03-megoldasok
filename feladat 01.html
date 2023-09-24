@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1. feladat</title>
+</head>
+<body>
+    <div class="container-md">
+        <h1>1. feladat - Gondoltam egy számot alkalmazás</h1>
+        <input type="number" name="" id="tippem" min="1" max="100">
+        <button onclick="tippcheck()">Küld el a tipped!</button>
+        <p id="valasz"></p>
+    </div>
+    
+    <script>
+        const szamAmireGondolok = Math.floor(Math.random() * 100 ) + 1;
+        function tippcheck() {
+    const tippelesem = parseInt(document.getElementById('tippem').value);
+    
+        
+        if (isNaN(tippelesem) || tippelesem < 1 || tippelesem > 100){
+            alert('A szám nem érvényes, kérlek gépelj be számot 1-100-ig')
+            return;
+        };
+        
+
+        if (tippelesem === szamAmireGondolok) {
+            document.getElementById('valasz').innerText = 'Mekkora mázlista vagy! Eltaláltad a kért számot!: ${szamAmireGondolok}';
+        }
+        else if (tippelesem < szamAmireGondolok) {
+            document.getElementById('valasz').innerText = 'Haha, nem talált. A gondolt szám nagyobb!';
+        }
+        else {
+            document.getElementById('valasz').innerText = 'Haha! A szám amit keresel, kisebb!';
+        }
+
+
+}
+        
+    </script>
+</body>
+</html>
